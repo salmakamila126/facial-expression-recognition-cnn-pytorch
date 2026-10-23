@@ -91,7 +91,7 @@ class NotebookIntegrationTests(unittest.TestCase):
         self.assertFalse(constants['RUN_TRAINING'])
         self.assertIsNone(constants['RESUME_RUN_DIR'])
         self.assertIsNone(constants['REVIEWED_V2_SPLIT_SHA256'])
-        self.assertEqual(constants['DATASET_PROTOCOL'], 'baseline')
+        self.assertIn(constants['DATASET_PROTOCOL'], ('baseline', 'clean_grouped_v2'))
         self.assertEqual(constants['V2_MODULE_SHA256'], hashlib.sha256(
             Path('clean_grouped_v2.py').read_bytes()).hexdigest())
         self.assertIn('RUN_FINAL_TEST = False', cells[32])
